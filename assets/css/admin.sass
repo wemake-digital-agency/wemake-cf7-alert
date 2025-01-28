@@ -1,0 +1,18 @@
+@import mixins
+@import flex
+
+body.wp-admin .plugins #wemake-cf7-alert-update
+  .notice > p
+    display: none
+    &.update-text
+      display: block
+  &.updated .notice
+    >p
+      display: none
+      &.update-success-text
+        display: block
+  &.updating-message .notice
+    >p
+      display: none
+      &.update-active-text
+        display: block
