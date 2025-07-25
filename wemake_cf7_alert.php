@@ -2,7 +2,7 @@
 /*
 Plugin Name: Wemake CF7 Alert
 Plugin URI: http://wemake.co.il
-Version: 2.18.2
+Version: 2.2
 Author: Wemake Team
 Author URI: http://wemake.co.il
 License: GPL2
@@ -29,7 +29,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 define("WMCFA_PLUGIN_NAME", 'Wemake CF7 Alert');
 define("WMCFA_PLUGIN_SLUG", 'wemake-cf7-alert');
-define("WMCFA_PLUGIN_VERSION", '2.18.2');
+define("WMCFA_PLUGIN_VERSION", '2.2');
 define("WMCFA_ABSPATH", dirname( __FILE__ ));
 define("WMCFA_URI", plugins_url().'/'.WMCFA_PLUGIN_SLUG);
 define("WMCFA_AJAX_DEBUG", true);
