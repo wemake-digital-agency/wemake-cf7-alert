@@ -31,11 +31,11 @@ jQuery(function(){
 
         // Check fields
 
-        $form.find("input:not([type='checkbox']):not([type='radio']):not([type='submit']),textarea").each(function(){
+        $form.find("input:not([type='radio']):not([type='submit']),textarea").each(function(){
 
             let $this = $(this);
 
-            if($this.hasClass("wpcf7-validates-as-required")){
+            if($this.hasClass("wpcf7-validates-as-required") || $this.parents('.wpcf7-form-control').hasClass("wpcf7-validates-as-required")){
 
                 if(!$this.wmcfa_trim_val()){
 
@@ -62,6 +62,10 @@ jQuery(function(){
 
                     trim_err++;
 
+                }
+
+                if($this.attr("type")==="checkbox" && !$this.wmcfa_validate_checkbox()){
+                    output_text += "<div class='error-fl'>אישור קבלת פרסומים ועדכונים הוא חובה</div>";
                 }
 
                 // Add custom notices
@@ -215,4 +219,8 @@ $.fn.wmcfa_validate_tel = function(){
         return false;
     }
     return true;
+};
+
+$.fn.wmcfa_validate_checkbox = function(){
+    return $(this).prop('checked');
 };
