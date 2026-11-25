@@ -2,10 +2,11 @@
 /*
 Plugin Name: Wemake CF7 Alert
 Plugin URI: http://wemake.co.il
-Version: 2.18.3
+Version: 2.19
 Author: Wemake Team
 Author URI: http://wemake.co.il
 License: GPL2
+Update URI: https://repository.wemake.co.il/wemake-cf7-alert
 */
 
 /*
@@ -29,10 +30,9 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 define("WMCFA_PLUGIN_NAME", 'Wemake CF7 Alert');
 define("WMCFA_PLUGIN_SLUG", 'wemake-cf7-alert');
-define("WMCFA_PLUGIN_VERSION", '2.18.3');
+define("WMCFA_PLUGIN_VERSION", '2.19');
 define("WMCFA_ABSPATH", dirname( __FILE__ ));
 define("WMCFA_URI", plugins_url().'/'.WMCFA_PLUGIN_SLUG);
-define("WMCFA_AJAX_DEBUG", true);
 
 // PHP version
 
@@ -48,11 +48,10 @@ if(version_compare(phpversion(), '5.6.40', '<')){
 
 require_once(WMCFA_ABSPATH . '/inc/functions.php');
 
-// AJAX actions
+// Updates through the Wemake update server (repository.wemake.co.il)
 
-if(isset($_GET['action']) && (function_exists('wp_doing_ajax') &&  wp_doing_ajax() || defined('DOING_AJAX'))){
-    require_once(WMCFA_ABSPATH . '/inc/action.php');
-}
+require_once(WMCFA_ABSPATH . '/inc/class-wemake-update-client.php');
+new Wemake_Update_Client_1_0(__FILE__, WMCFA_PLUGIN_SLUG, WMCFA_PLUGIN_VERSION);
 
 // Languages
 

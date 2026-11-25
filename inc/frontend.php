@@ -2,14 +2,6 @@
 
 if(get_option('wmcfa_l')) return false;
 
-// Maintenance mode
-
-add_action('template_redirect', function(){
-    if(wmcfa_get_maintenance_status()){
-        die('<h1 align="center">'.__('Briefly unavailable for scheduled maintenance. Check back in a minute.', WMCFA_PLUGIN_SLUG).'</h1>');
-    }
-});
-
 function wmcfa_init_scripts(){
 
     wp_enqueue_style('wemake-cf7-alert-css',    WMCFA_URI.'/assets/css/frontend.css', array(), '1.0', 'all');
